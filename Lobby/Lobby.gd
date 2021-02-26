@@ -6,12 +6,10 @@ const PORT = 6969
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 
-
 func _on_Multiplayer_pressed():
 	var net = NetworkedMultiplayerENet.new()
 	net.create_server(PORT, MAX_PLAYERS)
 	get_tree().set_network_peer(net)
-
 
 func _on_Join_pressed():
 	var net = NetworkedMultiplayerENet.new()
@@ -19,4 +17,7 @@ func _on_Join_pressed():
 	get_tree().set_network_peer(net)
 
 func _player_connected(id):
-	pass
+	Globals.player2id = id
+	var game = preload("res://Game/Game.tscn").instance()
+	get_tree().get_root().add_child(game)
+	hide()
