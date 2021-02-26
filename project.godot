@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mi_primer_multijugador_online"
+run/main_scene="res://Lobby/Lobby.tscn"
 config/icon="res://icon.png"
 
 [rendering]
